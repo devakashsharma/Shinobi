@@ -1,6 +1,7 @@
 // import React from 'react'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
+import About from './components/About'
 
 const App = () => {
     return (
@@ -8,10 +9,10 @@ const App = () => {
             <Navbar />
             <Hero />
 
-            <section className="z-0 min-h-screen bg-blue-500" />
+            {/* <section className="z-0 min-h-screen bg-blue-500" /> */}
 
-            {/* <About />
-            <Features />
+            <About />
+            {/* <Features />
             <Story />
             <Contact />
             <Footer /> */}
