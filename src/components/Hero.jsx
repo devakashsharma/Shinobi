@@ -11,7 +11,7 @@ const Hero = () => {
   // to scroll the rectangle
   useGSAP(() => {
     gsap.set("#video-frame", {
-      clipPath: "polygon(14% 0%, 72% 0%, 90% 90%, 0% 100%)",
+      clipPath: "polygon(14% 10%, 72% 8%, 95% 85%, 0% 100%)",
       borderRadius: "0 0 40% 10%",
     });
 
