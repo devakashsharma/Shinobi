@@ -56,21 +56,21 @@ const Hero = () => {
           />
         </div>
 
-        <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
-          A<b>k</b>ash
+        <h1 className="hero-heading poppins-italic text-9xl poppins font-bold absolute bottom-8 right-5 z-40 text-blue-75">
+        Akash
         </h1>
 
-        <div className="absolute left-0 top-0 z-40 size-full">
+        <div className="absolute left-0 top-20 z-40 size-full">
           <div className="mt-24 px-5 sm:px-10">
-            <h1 className="special-font hero-heading text-blue-100">
-              A<b>k</b>ash
-            </h1>
 
-            <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-              A full stack developer
-              {/* <br />
-              Unleash the Play Economy */}
+            <p className="text-lg md:text-xl max-w-64 font-robert-regular text-blue-100">
+              Hey There!
+              <br />
+              I'm a <span className="poppins-italic font-bold text-xl md:text-2xl">Full Stack</span>
             </p>
+              <h1 className="text-4xl poppins hero-heading poppins font-bold text-blue-100">
+                Developer
+              </h1>
 
             {/* <Button
               id="watch-trailer"
@@ -82,8 +82,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
-      A<b>k</b>ash
+      <h1 className="hero-heading poppins-italic absolute bottom-8 right-5 text-black">
+      Akash
       </h1>
     </div>
   );

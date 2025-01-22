@@ -1,4 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/general-sans");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,6 +10,7 @@ body {
   overflow-x: hidden;
   background-color: #dfdff0;
   font-family: "General Sans", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 @layer base {
@@ -35,6 +37,23 @@ body {
   @font-face {
     font-family: "zentry";
     src: url("/fonts/zentry-regular.woff2") format("woff2");
+  }
+
+  /* Poppins */
+  @font-face {
+    font-family: "poppins-bold";
+    src: url("/fonts/poppins-bold.ttf") format("ttf");
+  }
+}
+
+@layer fonts {
+  .poppins {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .poppins-italic {
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
   }
 }
 
@@ -69,7 +88,7 @@ body {
   }
 
   .hero-heading {
-    @apply uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
+    @apply font-black text-6xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[9rem];
   }
 
   .about-subtext {
