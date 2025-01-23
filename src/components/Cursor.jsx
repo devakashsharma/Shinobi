@@ -43,7 +43,7 @@ export default function CursorFollower() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-9 h-9 border border-black rounded-full opacity-0 pointer-events-none z-[10000] select-none"
+      className="fixed top-0 left-0 w-10 h-10 border border-black rounded-full opacity-0 pointer-events-none z-[10000] select-none"
     />
   );
 }
