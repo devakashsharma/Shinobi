@@ -1,25 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const About = () => {
+  const aboutRef = useRef(null);
+
+  useEffect(() => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate the About section
+    gsap.fromTo(
+      aboutRef.current,
+      { x: "100%", y: "50%", opacity: 0 }, // Initial state
+      {
+        x: "0%",
+        y: "0%",
+        opacity: 1,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: "top 70%", // Trigger when the top of the section reaches 70% of the viewport
+        },
+      }
+    );
+  }, []);
+
   return (
     <div id="about" className="min-h-screen">
-      <div className="min-h-screen mt-20 w-full flex flex-col justify-center items-center">
+      <div
+        ref={aboutRef}
+        className="min-h-screen mt-20 w-full flex flex-col justify-center items-center"
+      >
         <div className="mt-20">
           <h1 className="font-general font-bold text-4xl md:text-6xl mb-14">
             About
           </h1>
         </div>
         <div className="w-full bg-blue-600 py-16 shadow-lg">
-          {/* Progress Bars */}
-          <div className="w-full flex flex-col items-start space-y-4 mb-12">
-            <div className="w-[75%] h-4 bg-[#0a216e] rounded-r-lg overflow-hidden shadow-sm">
-              <div className="h-full bg-black w-[50%]"></div>
-            </div>
-            {/* <div className="w-[20%] bg-black rounded-r-xl flex justify-end items-center px-4">
-              <h1 className="text-2xl py-2 font-medium text-white">Akash</h1>
-            </div> */}
-          </div>
-
           <div className="flex flex-col md:flex-row justify-around items-center w-full rounded-lg">
             {/* Image Container */}
             <div className="flex justify-center items-center w-full md:w-[40%] mb-8 md:mb-0">
@@ -52,34 +71,15 @@ const About = () => {
                 .
               </p>
 
-              {/* Horizontal Divider */}
-              <hr className="border-t-2 border-black w-1/3" />
-
-              {/* Highlights */}
-              {/* <ul className="space-y-3">
-                <li className="flex items-center">
-                  <span className="w-4 h-4 bg-black rounded-full mr-3"></span>
-                  Passionate about learning cutting-edge technologies.
-                </li>
-                <li className="flex items-center">
-                  <span className="w-4 h-4 bg-black rounded-full mr-3"></span>
-                  Experienced in building full-stack applications.
-                </li>
-                <li className="flex items-center">
-                  <span className="w-4 h-4 bg-black rounded-full mr-3"></span>
-                  Dedicated to problem-solving and innovation.
-                </li>
-              </ul> */}
-
               <div className="flex flex-col gap-3">
-                <p className="poppins">
-                  Know more about me <span className="text-2xl">...</span>
+                <p className="font-circular-web text-xl">
+                  Know more about me.
                 </p>
                 <div className="flex flex-row gap-3">
                   <a href="#">
                     <button
                       className="bg-[#DFDFF0] text-blue-600 rounded-lg font-general font-bold py-2 px-4 
-                  hover:bg-white transition-colors duration-300 ease-in-out"
+                      hover:bg-white transition-colors duration-300 ease-in-out"
                     >
                       Resume
                     </button>
@@ -87,7 +87,7 @@ const About = () => {
                   <a href="#contact">
                     <button
                       className="bg-[#DFDFF0] text-blue-600 rounded-lg font-general font-bold py-2 px-4 
-                  hover:bg-white transition-colors duration-300 ease-in-out"
+                      hover:bg-white transition-colors duration-300 ease-in-out"
                     >
                       Contact
                     </button>
