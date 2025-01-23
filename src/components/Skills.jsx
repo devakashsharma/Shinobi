@@ -44,7 +44,7 @@ const Skills = () => {
         </h1>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
           {skills.map((skill, index) => (
             <div
               key={index}
