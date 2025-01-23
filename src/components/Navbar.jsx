@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 
-const navItems = ["Home", "About", "Project", "Contact"];
+const navItems = ["Home", "About", "Skills",  "Project", "Contact"];
 
 const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);

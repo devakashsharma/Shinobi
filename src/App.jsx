@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import About from './components/About'
 import CursorFollower from './components/Cursor'
+import Skills from './components/Skills'
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
             {/* <section className="z-0 min-h-screen bg-blue-500" /> */}
 
             <About />
+            <Skills />
             {/* <Features />
             <Story />
             <Contact />
