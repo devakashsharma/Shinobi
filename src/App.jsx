@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import About from './components/About'
 import CursorFollower from './components/Cursor'
 import Skills from './components/Skills'
+import Project from './components/Project'
 
 const App = () => {
     return (
@@ -11,15 +12,9 @@ const App = () => {
             <CursorFollower />
             <Navbar />
             <Hero />
-
-            {/* <section className="z-0 min-h-screen bg-blue-500" /> */}
-
             <About />
             <Skills />
-            {/* <Features />
-            <Story />
-            <Contact />
-            <Footer /> */}
+            <Project />
         </main>
     )
 }
