@@ -22,6 +22,7 @@ const About = () => {
         scrollTrigger: {
           trigger: aboutRef.current,
           start: "top 70%", // Trigger when the top of the section reaches 70% of the viewport
+          toggleActions: "play none none reverse",
         },
       }
     );
