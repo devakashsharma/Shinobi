@@ -84,7 +84,7 @@ const About = () => {
           </h1>
         </div>
         <div className="w-full bg-blue-600 py-16 shadow-lg">
-          <div className="flex flex-col md:flex-row justify-around items-center w-full rounded-lg">
+          <div className="flex flex-col md:flex-row justify-around items-center gap-10 w-full rounded-lg">
             {/* Image Container */}
             <div
               ref={imageRef}
