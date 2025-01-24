@@ -1,9 +1,39 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
+import { FaInstagram, FaGithub, FaLinkedin, FaTwitter, FaTimes } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const socialMedia = [
+  {
+    icon: FaInstagram,
+    url: "https://instagram.com/itz_____akash01",
+    color: "text-pink-600",
+  },
+  {
+    icon: FaGithub,
+    url: "https://github.com/devakashsharma",
+    color: "text-gray-800",
+  },
+  {
+    icon: FaLinkedin,
+    url: "https://www.linkedin.com/in/akash-sharma-1b7a73240",
+    color: "text-blue-600",
+  },
+//   {
+//     icon: FaTwitter,
+//     url: "https://twitter.com/your_username",
+//     color: "text-blue-500",
+//   },
+  {
+    icon: SiLeetcode,
+    url: "https://leetcode.com/devakashsharma",
+    color: "text-yellow-500",
+  },
+];
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -13,45 +43,42 @@ const ContactForm = () => {
   });
   const [submitStatus, setSubmitStatus] = useState({
     status: null,
-    message: ""
+    message: "",
   });
   const formRef = useRef(null);
-  const inputRefs = useRef([]);
   const textRef = useRef(null);
 
   useEffect(() => {
-    const formElements = inputRefs.current;
-    const textElement = textRef.current;
-
+    // Animation for the text section
     gsap.fromTo(
-      formElements,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: formRef.current,
-          start: "top 70%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-
-    gsap.fromTo(
-      textElement,
+      textRef.current,
       { opacity: 0, x: -50 },
       {
         opacity: 1,
         x: 0,
-        duration: 0.8,
-        ease: "power2.out",
+        duration: 1.2,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: formRef.current,
-          start: "top 70%",
-          toggleActions: "play none none reverse",
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // Animation for the form
+    gsap.fromTo(
+      formRef.current,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: formRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
       }
     );
@@ -64,65 +91,84 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Replace with your EmailJS credentials
-    emailjs.send(
-      'service_bdv36ak', 
-      'template_4j04jz7', 
-      {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message
-      }, 
-      'SDhhAOkaBnNh97eIU'
-    )
-    .then((response) => {
-      setSubmitStatus({
-        status: 'success',
-        message: 'Message sent successfully!'
+    emailjs
+      .send(
+        "service_bdv36ak",
+        "template_4j04jz7",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "SDhhAOkaBnNh97eIU"
+      )
+      .then((response) => {
+        setSubmitStatus({
+          status: "success",
+          message: "Message sent successfully!",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        setSubmitStatus({
+          status: "error",
+          message: "Failed to send message. Please try again.",
+        });
+        console.error("EmailJS Error:", error);
       });
-      // Reset form
-      setFormData({ name: "", email: "", message: "" });
-    })
-    .catch((error) => {
-      setSubmitStatus({
-        status: 'error',
-        message: 'Failed to send message. Please try again.'
-      });
-      console.error('EmailJS Error:', error);
-    });
   };
 
   return (
-    <div id="contact" className="min-h-screen bg-[#dfdff0] flex items-center justify-center p-6">
-      <div className="flex flex-row justify-evenly items-center w-full max-w-5xl">
-        <div 
+    <div
+      id="contact"
+      className="min-h-screen bg-gradient-to-br from-[#f0f4ff] to-[#d1d8f0] flex items-center justify-center px-10 py-14"
+    >
+      <div className="flex flex-col md:flex-row justify-evenly items-center w-full max-w-6xl">
+        {/* Text Section */}
+        <div
           ref={textRef}
-          className="w-1/2 pr-12"
+          className="w-full md:w-1/2 pr-12 poppins text-center md:text-left mb-12 md:mb-0"
         >
           <h2 className="text-5xl font-bold mb-6 text-gray-800">
             Let's Work Together
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed">
-            Have a project in mind? I'd love to hear about it. 
-            Send me a message, and let's create something amazing.
+          <p className="text-lg text-gray-600 leading-relaxed mb-3">
+            Have a project in mind? I'd love to hear about it. Send me a
+            message, and let's create something amazing.
           </p>
+
+          {/* Social Media Links */}
+          <p className="text-lg poppins text-gray-700 mb-2">Follow me on:</p>
+          <div className="flex justify-center md:justify-start space-x-5">
+            {socialMedia.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${social.color} hover:scale-110 transition-transform duration-300`}
+              >
+                <social.icon size={30} />
+              </a>
+            ))}
+          </div>
         </div>
 
+        {/* Form Section */}
         <div
           ref={formRef}
-          className="w-1/2 bg-white shadow-2xl rounded-2xl p-10 border-t-4 border-blue-500"
+          className="w-full md:w-1/2 bg-white shadow-lg rounded-2xl p-10"
         >
-          <h3 className="text-2xl font-semibold text-center mb-8 text-gray-800">
-            Contact Form
+          <h3 className="text-3xl font-semibold font-general text-center mb-8 text-gray-800">
+            Contact Me
           </h3>
 
           {submitStatus.status && (
-            <div 
-              className={`mb-4 p-3 rounded-lg text-center ${
-                submitStatus.status === 'success' 
-                  ? 'bg-green-100 text-green-800' 
-                  : 'bg-red-100 text-red-800'
+            <div
+              className={`mb-4 p-3 rounded-lg poppins text-center ${
+                submitStatus.status === "success"
+                  ? "bg-green-100 text-green-800"
+                  : "bg-red-100 text-red-800"
               }`}
             >
               {submitStatus.message}
@@ -131,50 +177,44 @@ const ContactForm = () => {
 
           <form onSubmit={handleSubmit}>
             {[
-              { 
-                label: "Name", 
-                type: "text", 
-                name: "name", 
-                ref: (el) => (inputRefs.current[0] = el) 
+              {
+                label: "Name",
+                type: "text",
+                name: "name",
+                placeholder: "Your Name",
               },
-              { 
-                label: "Email", 
-                type: "email", 
-                name: "email", 
-                ref: (el) => (inputRefs.current[1] = el) 
-              }
-            ].map((field, index) => (
-              <div 
-                key={field.name} 
-                ref={field.ref} 
-                className="mb-4"
-              >
-                <label 
-                  htmlFor={field.name} 
+              {
+                label: "Email",
+                type: "email",
+                name: "email",
+                placeholder: "Your Email",
+              },
+            ].map((field) => (
+              <div key={field.name} className="mb-6 poppins">
+                <label
+                  htmlFor={field.name}
                   className="block text-gray-700 mb-2 font-medium"
                 >
                   {field.label}
                 </label>
-                <input
-                  type={field.type}
-                  id={field.name}
-                  name={field.name}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border-2 border-gray-200 
-                             rounded-lg focus:outline-none 
-                             focus:border-blue-500 transition duration-300"
-                />
+                <div className="relative">
+                  <input
+                    type={field.type}
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    placeholder={field.placeholder}
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 transition-all duration-300"
+                  />
+                </div>
               </div>
             ))}
 
-            <div 
-              ref={(el) => (inputRefs.current[2] = el)} 
-              className="mb-6"
-            >
-              <label 
-                htmlFor="message" 
+            <div className="mb-6 poppins">
+              <label
+                htmlFor="message"
                 className="block text-gray-700 mb-2 font-medium"
               >
                 Message
@@ -184,28 +224,19 @@ const ContactForm = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
+                placeholder="Your Message"
                 required
-                rows="4"
-                className="w-full px-4 py-3 border-2 border-gray-200 
-                           rounded-lg focus:outline-none 
-                           focus:border-blue-500 transition duration-300"
+                rows="5"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 transition-all duration-300"
               />
             </div>
 
-            <div 
-              ref={(el) => (inputRefs.current[3] = el)} 
-              className="text-center"
+            <button
+              type="submit"
+              className="w-full font-general bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105"
             >
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white py-3 
-                           rounded-lg hover:bg-blue-600 
-                           transition duration-300 ease-in-out 
-                           transform hover:scale-105 font-semibold"
-              >
-                Send Message
-              </button>
-            </div>
+              Send Message
+            </button>
           </form>
         </div>
       </div>
