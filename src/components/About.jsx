@@ -92,9 +92,9 @@ const About = () => {
             >
               <div className="relative group">
                 <img
-                  src="/img/about.webp"
+                  src="/img/Shinobi.jpg"
                   alt="About Me"
-                  className="w-72 h-72 rounded-full shadow-xl border-4 border-black 
+                  className="w-72 h-72 rounded-full object-cover shadow-xl border-4 border-black 
                              transition-transform duration-300 group-hover:scale-110"
                 />
                 {/* Decorative Circle with Enhanced Animation */}
