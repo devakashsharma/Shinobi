@@ -127,7 +127,7 @@ const ContactForm = () => {
         {/* Text Section */}
         <div
           ref={textRef}
-          className="w-full md:w-1/2 pr-12 poppins text-center md:text-left mb-12 md:mb-0"
+          className="w-full md:w-1/2 md:pr-12 poppins text-center md:text-left mb-12 md:mb-0"
         >
           <h2 className="text-5xl font-bold mb-6 text-gray-800">
             Let's Work Together
