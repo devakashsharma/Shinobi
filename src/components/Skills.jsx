@@ -15,7 +15,7 @@ const Skills = () => {
       if (skillsRef.current) {
         const sectionTop = skillsRef.current.getBoundingClientRect().top;
         const sectionHeight = skillsRef.current.offsetHeight;
-        const threshold = sectionHeight * 0.9;
+        const threshold = sectionHeight * 0.7;
 
         if (sectionTop < window.innerHeight - threshold) {
           setBgColor("#ffee32"); 
