@@ -50,7 +50,7 @@ const Navbar = () => {
                 className="size-12 rounded-full"
               />
             </a>
-            <p className="text-lg text-blue-50">Shinobi</p>
+            <p className="text-lg font-circular-web text-blue-50">Shinobi</p>
           </div>
 
           <div className="flex h-full items-center">
