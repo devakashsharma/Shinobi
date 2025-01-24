@@ -26,7 +26,7 @@ export default function CursorFollower() {
 
     const handleMouseLeave = () => {
       gsap.to(cursor, {
-        duration: 0.7,
+        duration: 0.5,
         opacity: 0,
       });
     };
@@ -43,7 +43,7 @@ export default function CursorFollower() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-10 h-10 border border-black rounded-full opacity-0 pointer-events-none z-[10000] select-none"
+      className="hidden sm:block fixed top-0 left-0 w-[2.5rem] h-[2.5rem] border border-black rounded-full opacity-0 pointer-events-none z-[10000] select-none md:w-12 md:h-12"
     />
   );
 }
