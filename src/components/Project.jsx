@@ -14,7 +14,7 @@ const Project = () => {
       if (ref) {
         gsap.fromTo(
           ref,
-          { y: 50, opacity: 0 }, // Initial state (bottom and invisible)
+          { y: 50, opacity: 0 },
           {
             y: 0,
             opacity: 1,
@@ -22,17 +22,31 @@ const Project = () => {
             ease: "power3.out",
             scrollTrigger: {
               trigger: ref,
-              start: "top 80%", // Start animation when 80% of the viewport
+              start: "top 80%",
               toggleActions: "play none none none",
             },
           }
         );
       }
     });
+
+    // Dynamic Background Animation
+    gsap.to("#project", {
+      background: "linear-gradient(135deg, #ffffff, #1a1a1a)",
+      scrollTrigger: {
+        trigger: "#project",
+        start: "top 50%",
+        end: "bottom 50%",
+        scrub: true,
+      },
+    });
   }, []);
 
   return (
-    <div id="project" className="min-h-screen bg-[#dfdff0] py-16 px-8 md:px-12">
+    <div
+      id="project"
+      className="min-h-screen bg-[#ffffff] py-16 px-8 md:px-12"
+    >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-6xl font-bold text-center mb-16 text-gray-800 font-general mt-6">
           My Projects
@@ -43,18 +57,22 @@ const Project = () => {
             <div
               key={project.id}
               ref={(el) => (projectRefs.current[index] = el)}
-              className="bg-white shadow-lg rounded-xl overflow-hidden 
-                         transform transition-all duration-300 
-                         hover:scale-105 hover:shadow-2xl"
+              className="bg-white shadow-md rounded-xl overflow-hidden 
+                         transform transition-transform duration-300 
+                         hover:scale-105 hover:shadow-lg"
             >
               <img
                 src={project.image}
                 alt={project.name}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover transition-transform 
+                           duration-500 hover:scale-110"
               />
 
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3 text-gray-800">
+              <div className="p-6 relative">
+                <h3
+                  className="text-2xl font-semibold mb-3 text-gray-800 
+                             hover:animate-pulse"
+                >
                   {project.name}
                 </h3>
 
@@ -64,7 +82,7 @@ const Project = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="bg-blue-100 text-blue-800 
+                      className="bg-gray-200 text-gray-800 
                                  px-3 py-1 rounded-full text-sm"
                     >
                       {tech}
@@ -76,9 +94,9 @@ const Project = () => {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block font-general bg-blue-600 border-2 border-blue-600 text-white 
-                             px-4 py-2 rounded-lg hover:bg-transparent hover:text-blue-600 
-                             transition duration-300"
+                  className="inline-block font-general bg-gray-800 border-2 border-gray-800 text-white 
+                             px-4 py-2 rounded-lg hover:bg-transparent hover:text-gray-800 
+                             transition-all duration-300"
                 >
                   View on GitHub
                 </a>
