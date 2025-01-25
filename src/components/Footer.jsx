@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-gray-900 to-black text-white py-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-center md:justify-around items-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide text-amber-50 mb-6 md:mb-0">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide font-circular-web text-amber-50 mb-6 md:mb-0">
             Akash Sharma
           </h2>
 
@@ -45,7 +45,7 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <div className="mt-6 text-center md:text-start">
+            <div className="mt-6 text-center md:text-start font-robert-medium">
               <p className="text-gray-400 text-sm md:text-base">
                 Made with <span className="text-red-500">❤️</span> by Akash
                 Sharma
