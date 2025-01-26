@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const socialMedia = [
   {
     icon: FaInstagram,
-    url: "https://instagram.com/itz_____akash01",
+    url: "https://www.instagram.com/itz____akash01/",
     color: "text-pink-600",
   },
   {
