@@ -23,7 +23,7 @@ const LoadingScreen = ({ onLoadingComplete, videoSrc }) => {
     "UX Innovator", 
     "Hey There!👋",
     "I'm Akash",
-    "A Shinobi 🥷"
+    "A Digital Shinobi 🥷"
   ];
 
   useEffect(() => {
