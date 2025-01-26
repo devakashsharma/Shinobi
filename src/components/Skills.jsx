@@ -18,7 +18,7 @@ const Skills = () => {
         const threshold = sectionHeight * 0.7;
 
         if (sectionTop < window.innerHeight - threshold) {
-          setBgColor("#ffee32"); 
+          setBgColor("#ffee32");
         } else {
           setBgColor("#dfdff0");
         }
@@ -27,13 +27,13 @@ const Skills = () => {
 
     // GSAP Animations
     const skillElements = skillItemRefs.current;
-    
+
     gsap.fromTo(
       skillElements,
-      { 
-        opacity: 0, 
+      {
+        opacity: 0,
         scale: 0.7,
-        y: 50
+        y: 50,
       },
       {
         opacity: 1,
@@ -45,8 +45,8 @@ const Skills = () => {
         scrollTrigger: {
           trigger: skillsRef.current,
           start: "top 70%",
-          toggleActions: "play none none reverse"
-        }
+          toggleActions: "play none none reverse",
+        },
       }
     );
 
@@ -62,7 +62,10 @@ const Skills = () => {
       id="skills"
       ref={skillsRef}
       className="min-h-screen w-full py-20"
-      style={{ backgroundColor: bgColor, transition: "background-color 0.5s ease" }}
+      style={{
+        backgroundColor: bgColor,
+        transition: "background-color 0.5s ease",
+      }}
     >
       <div className="max-w-6xl mx-auto px-6">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-800 font-general text-center mb-12">
@@ -73,7 +76,7 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <div
               key={index}
-              ref={el => skillItemRefs.current[index] = el}
+              ref={(el) => (skillItemRefs.current[index] = el)}
               className="bg-white p-4 rounded-xl shadow-lg flex items-center justify-center 
                          hover:shadow-2xl transition-all duration-300 ease-in-out 
                          transform hover:scale-110 hover:rotate-6 cursor-pointer 
@@ -85,11 +88,15 @@ const Skills = () => {
                 className="w-16 h-16 object-contain transition-transform duration-300 
                            group-hover:scale-125"
               />
-              <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-20 
-                              transition-opacity duration-300 rounded-xl"></div>
-              <span className="absolute bottom-0 left-0 right-0 text-center text-xs 
+              <div
+                className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-20 
+                              transition-opacity duration-300 rounded-xl"
+              ></div>
+              <span
+                className="absolute bottom-0 left-0 right-0 text-center text-xs 
                                bg-gray-100 opacity-0 group-hover:opacity-100 
-                               transition-opacity duration-300 py-1">
+                               transition-opacity duration-300 py-1"
+              >
                 {skill.name}
               </span>
             </div>

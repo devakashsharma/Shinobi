@@ -14,16 +14,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const LoadingScreen = ({ onLoadingComplete, videoSrc }) => {
   const [dynamicText, setDynamicText] = useState("Passion");
-  const [stage, setStage] = useState('text');
+  const [stage, setStage] = useState("text");
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const textArray = [
     "Passion",
-    "Code & Creativity", 
-    "UX Innovator", 
+    "Code & Creativity",
+    "UX Innovator",
     "Hey There!👋",
     "I'm Akash",
-    "A Digital Shinobi 🥷"
+    "A Digital Shinobi 🥷",
   ];
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const LoadingScreen = ({ onLoadingComplete, videoSrc }) => {
         setIsDarkMode((prev) => !prev);
       } else {
         clearInterval(textInterval);
-        setStage('loading');
+        setStage("loading");
       }
     }, 1500);
 
@@ -44,8 +44,8 @@ const LoadingScreen = ({ onLoadingComplete, videoSrc }) => {
   }, []);
 
   useEffect(() => {
-    if (stage === 'loading') {
-      const video = document.createElement('video');
+    if (stage === "loading") {
+      const video = document.createElement("video");
       video.src = videoSrc;
       video.oncanplaythrough = () => {
         onLoadingComplete();
@@ -55,19 +55,19 @@ const LoadingScreen = ({ onLoadingComplete, videoSrc }) => {
   }, [stage, videoSrc, onLoadingComplete]);
 
   return (
-    <div 
+    <div
       className={`fixed inset-0 flex flex-col justify-center items-center z-[9999] transition-colors duration-1000 ${
         isDarkMode ? "bg-black" : "bg-white"
       }`}
     >
-      <p 
+      <p
         className={`text-3xl md:text-5xl text-center font-general font-bold transition-colors duration-1000 ${
           isDarkMode ? "text-white" : "text-black"
         }`}
       >
         {dynamicText}
       </p>
-      {stage === 'loading' && (
+      {stage === "loading" && (
         <div className="w-[90%] h-1 bg-gray-700 mt-4 overflow-hidden">
           <div className="h-full bg-white animate-pulse"></div>
         </div>
@@ -90,7 +90,7 @@ const App = () => {
       <CursorFollower />
       <Navbar />
       {!loadingComplete && (
-        <LoadingScreen 
+        <LoadingScreen
           onLoadingComplete={() => setLoadingComplete(true)}
           videoSrc="/videos/video1.mp4"
         />

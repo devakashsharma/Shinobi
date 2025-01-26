@@ -12,7 +12,7 @@ const Hero = () => {
     // Simulate loading screen for 4 seconds
     const timer = setTimeout(() => {
       setIsLoading(false);
-    },);
+    });
 
     return () => clearTimeout(timer);
   }, []);

@@ -2,7 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import emailjs from "@emailjs/browser";
-import { FaInstagram, FaGithub, FaLinkedin, FaTwitter, FaTimes } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaTimes,
+} from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,11 +29,11 @@ const socialMedia = [
     url: "https://www.linkedin.com/in/akash-sharma-1b7a73240",
     color: "text-blue-600",
   },
-//   {
-//     icon: FaTwitter,
-//     url: "https://twitter.com/your_username",
-//     color: "text-blue-500",
-//   },
+  //   {
+  //     icon: FaTwitter,
+  //     url: "https://twitter.com/your_username",
+  //     color: "text-blue-500",
+  //   },
   {
     icon: SiLeetcode,
     url: "https://leetcode.com/devakashsharma",

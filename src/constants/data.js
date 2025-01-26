@@ -79,29 +79,31 @@ export const skills = [
 ];
 
 export const projects = [
-    {
-      id: 1,
-      name: "ReState",
-      description: "Real Estate Management App built with React Native and Appwrite.",
-      image: "./img/ReState.jpg",
-      technologies: ["React Native", "Appwrite"],
-      githubLink: "https://github.com/devakashsharma/ReState"
-    },
-    {
-      id: 2,
-      name: "Zentry UI Clone",
-      description: "Modern UI Clone showcasing React, Tailwind CSS, and GSAP skills.",
-      image: "./img/Zentry.jpg", 
-      technologies: ["React", "Tailwind", "GSAP"],
-      githubLink: "https://github.com/devakashsharma/Zentry"
-    },
-    {
-      id: 3,
-      name: "Chatify",
-      description: "Real-time Chat Application powered by React Native and Firebase.",
-      image: "./img/Chatify.jpg",
-      technologies: ["React Native", "Firebase"],
-      githubLink: "https://github.com/devakashsharma/Chatify"
-    }
-  ];
-
+  {
+    id: 1,
+    name: "ReState",
+    description:
+      "Real Estate Management App built with React Native and Appwrite.",
+    image: "./img/ReState.jpg",
+    technologies: ["React Native", "Appwrite"],
+    githubLink: "https://github.com/devakashsharma/ReState",
+  },
+  {
+    id: 2,
+    name: "Zentry UI Clone",
+    description:
+      "Modern UI Clone showcasing React, Tailwind CSS, and GSAP skills.",
+    image: "./img/Zentry.jpg",
+    technologies: ["React", "Tailwind", "GSAP"],
+    githubLink: "https://github.com/devakashsharma/Zentry",
+  },
+  {
+    id: 3,
+    name: "Chatify",
+    description:
+      "Real-time Chat Application powered by React Native and Firebase.",
+    image: "./img/Chatify.jpg",
+    technologies: ["React Native", "Firebase"],
+    githubLink: "https://github.com/devakashsharma/Chatify",
+  },
+];

@@ -43,10 +43,7 @@ const Project = () => {
   }, []);
 
   return (
-    <div
-      id="project"
-      className="min-h-screen bg-[#ffffff] py-16 px-8 md:px-12"
-    >
+    <div id="project" className="min-h-screen bg-[#ffffff] py-16 px-8 md:px-12">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-6xl font-bold text-center mb-16 text-gray-800 font-general mt-6">
           My Projects
