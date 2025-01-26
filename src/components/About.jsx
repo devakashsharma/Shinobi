@@ -92,7 +92,7 @@ const About = () => {
             >
               <div className="relative group">
                 <img
-                  src="/img/Shinobi.jpg"
+                  src="/img/person.jpg"
                   alt="About Me"
                   className="w-72 h-72 rounded-full object-cover shadow-xl border-4 border-black 
                              transition-transform duration-300 group-hover:scale-110"
@@ -121,8 +121,8 @@ const About = () => {
                 <span className="font-semibold">🦊 Shinobi</span>, named Akash
                 Sharma—a Software Developer with the Spirit of the Nine-Tails,
                 armed with the wisdom of the Hidden Leaf Village 🌳. Skilled in{" "}
-                <span className="font-medium">software development</span>,{" "}
-                <span className="font-medium">web development</span>, and{" "}
+                <span className="font-medium">front-end</span>,{" "}
+                <span className="font-medium">back-end development</span>, and{" "}
                 <span className="font-medium">
                   machine learning applications
                 </span>
@@ -132,7 +132,7 @@ const About = () => {
               <div ref={buttonsRef} className="flex flex-col gap-3">
                 <p className="font-circular-web text-xl text-amber-100">Know more about me.</p>
                 <div className="flex flex-row gap-3">
-                  <a href="https://drive.google.com/file/d/1YFx8Jk97ovAQDQTaQ6eSnlJazqSLxeiA/view?usp=sharing" target="_blank">
+                  <a href="https://drive.google.com/file/d/1p0hxW16sS6VPy3hM3ZamiVyFUPtI_fri/view?usp=sharing" target="_blank">
                     <button
                       className="bg-[#DFDFF0] text-blue-600 rounded-lg font-general font-bold py-2 px-4 
                       hover:bg-white hover:shadow-lg transition-all duration-300 ease-in-out 
