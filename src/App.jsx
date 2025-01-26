@@ -12,20 +12,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const LoadingScreen = ({ onLoadingComplete }) => {
+const LoadingScreen = ({ onLoadingComplete, videoSrc }) => {
   const [dynamicText, setDynamicText] = useState("Passion");
+  const [stage, setStage] = useState('text');
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [isLoadingBarVisible, setIsLoadingBarVisible] = useState(false);
 
   const textArray = [
     "Passion",
-    "User Experience",
-    "Crafting Innovations",
-    "Welcome to a New Realm...",
+    "Code & Creativity", 
+    "UX Innovator", 
+    "Hey There!👋",
+    "I'm Akash",
+    "A Shinobi 🥷"
   ];
 
   useEffect(() => {
     let textIndex = 0;
+
     const textInterval = setInterval(() => {
       textIndex++;
       if (textIndex < textArray.length) {
@@ -33,34 +36,38 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         setIsDarkMode((prev) => !prev);
       } else {
         clearInterval(textInterval);
-        setIsLoadingBarVisible(true);
+        setStage('loading');
       }
     }, 1500);
 
-    const loadingTimeout = setTimeout(() => {
-      onLoadingComplete(); // Notify parent when loading is complete
-    }, 8000);
+    return () => clearInterval(textInterval);
+  }, []);
 
-    return () => {
-      clearInterval(textInterval);
-      clearTimeout(loadingTimeout);
-    };
-  }, [onLoadingComplete]);
+  useEffect(() => {
+    if (stage === 'loading') {
+      const video = document.createElement('video');
+      video.src = videoSrc;
+      video.oncanplaythrough = () => {
+        onLoadingComplete();
+      };
+      video.load();
+    }
+  }, [stage, videoSrc, onLoadingComplete]);
 
   return (
-    <div
+    <div 
       className={`fixed inset-0 flex flex-col justify-center items-center z-[9999] transition-colors duration-1000 ${
         isDarkMode ? "bg-black" : "bg-white"
       }`}
     >
-      <p
-        className={`text-3xl md:text-5xl text-center font-general font-bold mb-4 transition-colors duration-1000 ${
+      <p 
+        className={`text-3xl md:text-5xl text-center font-general font-bold transition-colors duration-1000 ${
           isDarkMode ? "text-white" : "text-black"
         }`}
       >
         {dynamicText}
       </p>
-      {isLoadingBarVisible && (
+      {stage === 'loading' && (
         <div className="w-[90%] h-1 bg-gray-700 mt-4 overflow-hidden">
           <div className="h-full bg-white animate-pulse"></div>
         </div>
@@ -74,7 +81,6 @@ const App = () => {
 
   useEffect(() => {
     if (loadingComplete) {
-      // Refresh ScrollTrigger after loading
       gsap.delayedCall(0.5, () => ScrollTrigger.refresh());
     }
   }, [loadingComplete]);
@@ -84,7 +90,10 @@ const App = () => {
       <CursorFollower />
       <Navbar />
       {!loadingComplete && (
-        <LoadingScreen onLoadingComplete={() => setLoadingComplete(true)} />
+        <LoadingScreen 
+          onLoadingComplete={() => setLoadingComplete(true)}
+          videoSrc="/videos/video1.mp4"
+        />
       )}
       {loadingComplete && (
         <>
