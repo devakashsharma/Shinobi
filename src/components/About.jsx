@@ -134,7 +134,7 @@ const About = () => {
                   Know more about me.
                 </p>
                 <div className="flex flex-row gap-3">
-                  <a
+                  {/* <a
                     href="https://drive.google.com/file/d/1p0hxW16sS6VPy3hM3ZamiVyFUPtI_fri/view?usp=sharing"
                     target="_blank"
                   >
@@ -145,7 +145,7 @@ const About = () => {
                     >
                       Resume
                     </button>
-                  </a>
+                  </a> */}
                   <a href="#contact">
                     <button
                       className="bg-[#DFDFF0] text-blue-600 rounded-lg font-general font-bold py-2 px-4 
