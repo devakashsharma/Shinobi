@@ -47,12 +47,11 @@ const Footer = () => {
             </div>
             <div className="mt-6 text-center md:text-start font-robert-medium">
               <p className="text-gray-400 text-sm md:text-base">
-                Made with <span className="text-red-500">❤️</span> by Akash
-                Sharma
+                Made with <span className="text-red-500">❤️</span> by a Shinobi
               </p>
-              <p className="text-gray-500 text-xs md:text-sm mt-2">
+              {/* <p className="text-gray-500 text-xs md:text-sm mt-2">
                 © {currentYear} All Rights Reserved
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

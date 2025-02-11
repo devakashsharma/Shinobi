@@ -134,18 +134,6 @@ const About = () => {
                   Know more about me.
                 </p>
                 <div className="flex flex-row gap-3">
-                  {/* <a
-                    href="https://drive.google.com/file/d/1p0hxW16sS6VPy3hM3ZamiVyFUPtI_fri/view?usp=sharing"
-                    target="_blank"
-                  >
-                    <button
-                      className="bg-[#DFDFF0] text-blue-600 rounded-lg font-general font-bold py-2 px-4 
-                      hover:bg-white hover:shadow-lg transition-all duration-300 ease-in-out 
-                      transform hover:-translate-y-1"
-                    >
-                      Resume
-                    </button>
-                  </a> */}
                   <a href="#contact">
                     <button
                       className="bg-[#DFDFF0] text-blue-600 rounded-lg font-general font-bold py-2 px-4 
