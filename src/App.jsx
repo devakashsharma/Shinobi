@@ -19,7 +19,7 @@ const LoadingScreen = ({ onLoadingComplete, videoSrc }) => {
 
   const textArray = [
     "Passion",
-    "Code & Creativity",
+    "Creativity",
     "UX Innovator",
     "Hey There!👋",
     "I'm Akash",
