@@ -92,7 +92,7 @@ const About = () => {
             >
               <div className="relative group">
                 <img
-                  src="/img/person.jpg"
+                  src="/img/person.png"
                   alt="About Me"
                   className="w-72 h-72 rounded-full object-cover shadow-xl border-4 border-black 
                              transition-transform duration-300 group-hover:scale-110"
