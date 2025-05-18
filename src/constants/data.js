@@ -110,7 +110,7 @@ export const projects = [
     id: 4,
     name: "Nexus",
     description:
-      "Nexus is a locally run chatbot that demonstrates the power of LLMs on your own machine.",
+      "A locally run chatbot that demonstrates the power of LLMs",
     image: "./img/project4.jpg",
     technologies: ["Python", "LLaMA3", "Ollama"],
     githubLink: "https://github.com/devakashsharma/Nexus-2.0",
@@ -119,7 +119,7 @@ export const projects = [
     id: 5,
     name: "VisionNote - V2",
     description:
-      "This project is a graphical user interface (GUI) for an image classification model.",
+      "This project is a GUI for an image classification model.",
     image: "./img/project5.jpg",
     technologies: ["Python", "Taipy", "TensorFlow"],
     githubLink: "https://github.com/devakashsharma/VisionNote-V2",
