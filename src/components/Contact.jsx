@@ -127,7 +127,7 @@ const ContactForm = () => {
   return (
     <div
       id="contact"
-      className="min-h-screen bg-gradient-to-br from-[#f0f4ff] to-[#d1d8f0] flex items-center justify-center px-10 py-14"
+      className="min-h-screen bg-gradient-to-br from-[#f0f4ff] to-[#d1d8f0] flex items-center justify-center  px-10 py-20"
     >
       <div className="flex flex-col md:flex-row justify-evenly items-center w-full max-w-6xl">
         {/* Text Section */}
