@@ -285,7 +285,7 @@ const About = () => {
                 {/* Premium CTA */}
                 <div
                   ref={buttonsRef}
-                  className="flex flex-col sm:flex-row gap-4 pt-6 opacity-0 translate-y-10 transition-all duration-1000 ease-out delay-700"
+                  className="flex flex-col sm:flex-row items-center gap-4 pt-6 opacity-0 translate-y-10 transition-all duration-1000 ease-out delay-700"
                 >
                   <a href="#contact" className="group">
                     <button
