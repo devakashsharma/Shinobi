@@ -170,7 +170,7 @@ const Skills = () => {
 
                 {/* Skill name */}
                 <span
-                  className="text-sm font-medium text-center transition-all duration-300 
+                  className="text-sm font-circular-web font-medium text-center transition-all duration-300 
                              opacity-0 group-hover:opacity-100 transform translate-y-2 
                              group-hover:translate-y-0 text-slate-700"
                 >

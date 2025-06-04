@@ -72,7 +72,7 @@ const Project = () => {
 
                 {/* Updated description with quote styling */}
                 <div className="relative mb-4 pl-4 border-l-4 border-black bg-gray-200 py-3 px-4 rounded-r-lg">
-                  <p className="text-gray-600 text-sm line-clamp-3 italic">
+                  <p className="text-gray-600 text-sm font-robert-regular line-clamp-3 italic">
                     {project.description}
                   </p>
                 </div>
