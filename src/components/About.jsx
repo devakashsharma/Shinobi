@@ -135,7 +135,10 @@ const About = () => {
         }
       `}</style>
 
-      <div id="about" className="min-h-screen relative overflow-hidden py-10 mt-24">
+      <div
+        id="about"
+        className="min-h-screen relative overflow-hidden py-10 mt-24"
+      >
         {/* Light Purple Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-400 to-blue-100 opacity-70"></div>
 

@@ -93,18 +93,20 @@ const Skills = () => {
       }}
     >
       {/* Animated background pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, ${bgColor === "#e2e8f0" ? "#64748b" : "#94a3b8"} 2px, transparent 2px)`,
-          backgroundSize: '50px 50px',
-          animation: 'drift 20s linear infinite',
+          backgroundImage: `radial-gradient(circle at 25% 25%, ${
+            bgColor === "#e2e8f0" ? "#64748b" : "#94a3b8"
+          } 2px, transparent 2px)`,
+          backgroundSize: "50px 50px",
+          animation: "drift 20s linear infinite",
         }}
       />
-      
+
       <div className="max-w-7xl mx-auto px-8 relative z-10">
         <div className="text-center mb-20">
-          <h1 
+          <h1
             ref={headingRef}
             className="text-4xl md:text-6xl font-bold font-general mb-4 tracking-tight text-black"
             style={{
@@ -131,26 +133,29 @@ const Skills = () => {
               ref={(el) => (skillItemRefs.current[index] = el)}
               className={`group relative p-6 rounded-2xl transition-all duration-500 ease-out 
                          transform hover:scale-110 hover:-translate-y-2 cursor-pointer
-                         ${bgColor === "#e2e8f0" 
-                           ? "bg-white shadow-xl hover:shadow-2xl border border-slate-200" 
-                           : "bg-slate-50 shadow-lg hover:shadow-xl border border-slate-100"
+                         ${
+                           bgColor === "#e2e8f0"
+                             ? "bg-white shadow-xl hover:shadow-2xl border border-slate-200"
+                             : "bg-slate-50 shadow-lg hover:shadow-xl border border-slate-100"
                          }`}
               style={{
                 backdropFilter: "blur(10px)",
-                boxShadow: bgColor === "#e2e8f0" 
-                  ? "0 10px 40px rgba(71, 85, 105, 0.15), 0 0 0 1px rgba(148, 163, 184, 0.1)"
-                  : "0 10px 40px rgba(71, 85, 105, 0.1), 0 0 0 1px rgba(148, 163, 184, 0.08)",
+                boxShadow:
+                  bgColor === "#e2e8f0"
+                    ? "0 10px 40px rgba(71, 85, 105, 0.15), 0 0 0 1px rgba(148, 163, 184, 0.1)"
+                    : "0 10px 40px rgba(71, 85, 105, 0.1), 0 0 0 1px rgba(148, 163, 184, 0.08)",
               }}
             >
               {/* Animated gradient overlay */}
-              <div 
+              <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 
                            transition-opacity duration-500"
                 style={{
-                  background: "linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1))"
+                  background:
+                    "linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1))",
                 }}
               />
-              
+
               {/* Skill icon */}
               <div className="relative z-10 flex flex-col items-center">
                 <div className="w-16 h-16 mb-4 flex items-center justify-center">
@@ -162,7 +167,7 @@ const Skills = () => {
                                group-hover:drop-shadow-lg"
                   />
                 </div>
-                
+
                 {/* Skill name */}
                 <span
                   className="text-sm font-medium text-center transition-all duration-300 
@@ -172,7 +177,7 @@ const Skills = () => {
                   {skill.name}
                 </span>
               </div>
-              
+
               {/* Floating particles effect */}
               <div className="absolute inset-0 pointer-events-none">
                 {[...Array(3)].map((_, i) => (
@@ -184,7 +189,7 @@ const Skills = () => {
                       left: `${20 + i * 30}%`,
                       top: `${20 + i * 20}%`,
                       animationDelay: `${i * 0.2}s`,
-                      animation: 'float 2s ease-in-out infinite',
+                      animation: "float 2s ease-in-out infinite",
                     }}
                   />
                 ))}
@@ -196,13 +201,22 @@ const Skills = () => {
 
       <style jsx>{`
         @keyframes drift {
-          0% { transform: translateX(-50px) translateY(-50px); }
-          100% { transform: translateX(50px) translateY(50px); }
+          0% {
+            transform: translateX(-50px) translateY(-50px);
+          }
+          100% {
+            transform: translateX(50px) translateY(50px);
+          }
         }
-        
+
         @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-10px) rotate(180deg); }
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-10px) rotate(180deg);
+          }
         }
       `}</style>
     </div>
