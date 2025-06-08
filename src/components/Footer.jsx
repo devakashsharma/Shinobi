@@ -18,9 +18,12 @@ const Footer = () => {
               {[
                 {
                   Icon: FaInstagram,
-                  url: "https://www.instagram.com/itz____akash01/",
+                  url: "https://www.instagram.com/justakash_02/",
                 },
-                { Icon: FaGithub, url: "https://github.com/devakashsharma" },
+                {
+                  Icon: FaGithub,
+                  url: "https://github.com/devakashsharma",
+                },
                 {
                   Icon: FaLinkedin,
                   url: "https://linkedin.com/in/akash-sharma-1b7a73240",
