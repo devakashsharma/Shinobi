@@ -196,7 +196,7 @@ const About = () => {
                   {/* Main Image with Elegant Effects */}
                   <div className="relative">
                     <img
-                      src="/img/person.png"
+                      src="/img/person-org.png"
                       alt="Akash Sharma"
                       className="w-80 h-80 md:w-96 md:h-96 rounded-3xl object-cover shadow-xl border border-purple-200/20
                                           transition-all duration-700 group-hover:scale-105 group-hover:-rotate-1
