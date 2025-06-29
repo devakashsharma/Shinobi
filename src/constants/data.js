@@ -16,6 +16,10 @@ export const skills = [
     name: "JavaScript",
   },
   {
+    img: "https://www.php.net/images/logos/new-php-logo.svg",
+    name: "PHP",
+  },
+  {
     img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
     name: "ReactJS",
   },
@@ -109,8 +113,7 @@ export const projects = [
   {
     id: 4,
     name: "Nexus",
-    description:
-      "A locally run chatbot that demonstrates the power of LLMs",
+    description: "A locally run chatbot that demonstrates the power of LLMs",
     image: "./img/project4.jpg",
     technologies: ["Python", "LLaMA3", "Ollama"],
     githubLink: "https://github.com/devakashsharma/Nexus-2.0",
@@ -118,8 +121,7 @@ export const projects = [
   {
     id: 5,
     name: "VisionNote - V2",
-    description:
-      "This project is a GUI for an image classification model.",
+    description: "This project is a GUI for an image classification model.",
     image: "./img/project5.jpg",
     technologies: ["Python", "Taipy", "TensorFlow"],
     githubLink: "https://github.com/devakashsharma/VisionNote-V2",
