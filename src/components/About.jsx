@@ -258,7 +258,7 @@ const About = () => {
                     </span>
                     <br />
                     <span className="text-emerald-500 font-medium">
-                      Software Developer
+                      Full Stack Software Developer
                     </span>{" "}
                     with the Spirit of the{" "}
                     <span className="text-orange-500 font-semibold">
