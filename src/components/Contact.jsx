@@ -9,7 +9,7 @@ import {
   FaTwitter,
   FaTimes,
 } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { SiLeetcode, SiRoadmapdotsh } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,6 +38,11 @@ const socialMedia = [
     icon: SiLeetcode,
     url: "https://leetcode.com/devakashsharma",
     color: "text-yellow-500",
+  },
+  {
+    icon: SiRoadmapdotsh,
+    url: "https://roadmap.sh/u/akashsharma",
+    color: "text-black",
   },
 ];
 

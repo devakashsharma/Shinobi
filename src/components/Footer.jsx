@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { SiLeetcode, SiRoadmapdotsh } from "react-icons/si";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -35,6 +35,10 @@ const Footer = () => {
                 {
                   Icon: SiLeetcode,
                   url: "https://leetcode.com/devakashsharma",
+                },
+                {
+                  Icon: SiRoadmapdotsh,
+                  url: "https://roadmap.sh/u/akashsharma",
                 },
               ].map(({ Icon, url }, index) => (
                 <a
