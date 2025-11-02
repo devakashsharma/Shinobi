@@ -1,11 +1,19 @@
 export const skills = [
   {
+    img: "https://cdn-icons-png.flaticon.com/512/226/226777.png",
+    name: "Java",
+  },
+  {
     img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
     name: "HTML",
   },
   {
     img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
     name: "CSS",
+  },
+  {
+    img: "https://sass-lang.com/assets/img/styleguide/seal-color.png",
+    name: "SASS",
   },
   {
     img: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
@@ -24,7 +32,11 @@ export const skills = [
     name: "ReactJS",
   },
   {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV9uzErWz9EXqZDxZ5lP9aYpMz8eK6rr5X3w&s",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpHj4UwTW4ANSlNjzQOiiOqfDa6kal9RpF0A&s",
+    name: "Zustand",
+  },
+  {
+    img: "https://images.icon-icons.com/2148/PNG/512/nextjs_icon_132160.png",
     name: "NextJS",
   },
   {
@@ -32,7 +44,7 @@ export const skills = [
     name: "NodeJS",
   },
   {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4T1YOdxe--UDu6VlEaqifJFs_dIXyiJUM0A&s",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7S33Oq2FeRbyBBA6l1q8PwLVa3SzaONO-9Q&s",
     name: "ExpressJS",
   },
   {
@@ -71,6 +83,10 @@ export const skills = [
   {
     img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg",
     name: "Linux",
+  },
+  {
+    img: "https://w7.pngwing.com/pngs/891/677/png-transparent-python-logos-and-brands-line-filled-icon.png",
+    name: "Python",
   },
   {
     img: "https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg",
