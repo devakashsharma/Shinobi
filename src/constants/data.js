@@ -32,7 +32,7 @@ export const skills = [
     name: "ReactJS",
   },
   {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpHj4UwTW4ANSlNjzQOiiOqfDa6kal9RpF0A&s",
+    img: "/img/zustand.png",
     name: "Zustand",
   },
   {
@@ -44,7 +44,7 @@ export const skills = [
     name: "NodeJS",
   },
   {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7S33Oq2FeRbyBBA6l1q8PwLVa3SzaONO-9Q&s",
+    img: "https://cdn.worldvectorlogo.com/logos/expressjs.svg",
     name: "ExpressJS",
   },
   {
@@ -85,7 +85,7 @@ export const skills = [
     name: "Linux",
   },
   {
-    img: "https://w7.pngwing.com/pngs/891/677/png-transparent-python-logos-and-brands-line-filled-icon.png",
+    img: "https://images.seeklogo.com/logo-png/27/2/python-logo-png_seeklogo-273830.png",
     name: "Python",
   },
   {
