@@ -10,6 +10,7 @@ body {
   overflow-x: hidden;
   background-color: #dfdff0;
   font-family: "General Sans", sans-serif;
+  cursor: default;
   /* font-family: "Poppins", sans-serif; */
 }
 
