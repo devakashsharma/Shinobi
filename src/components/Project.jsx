@@ -66,7 +66,7 @@ const Project = () => {
     <div id="project" className="py-20 bg-[#ffffff] px-8 md:px-12">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-20 text-gray-800 font-general mt-6">
-          Featured Projects
+          Featured Project
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 poppins gap-8">
