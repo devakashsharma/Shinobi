@@ -64,8 +64,8 @@ const Project = () => {
 
   return (
     <div id="project" className="py-20 bg-[#ffffff] px-8 md:px-12">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-6xl font-bold text-center mb-20 text-gray-800 font-general mt-6">
+      <div className="max-w-6xl mx-auto mt-10">
+        <h2 className="text-4xl md:text-6xl font-bold font-general text-center mb-20 text-gray-800 ">
           Featured Project
         </h2>
 

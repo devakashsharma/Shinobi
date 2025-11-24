@@ -1,317 +1,244 @@
 import React, { useEffect, useRef } from "react";
+// Make sure the path matches your file structure exactly
+import { skills } from "../constants/data";
 
 const About = () => {
-  const aboutRef = useRef(null);
-  const imageRef = useRef(null);
-  const textRef = useRef(null);
-  const buttonsRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    // Simple scroll-based animations using Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
+            entry.target.classList.add("animate-fade-up");
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    if (aboutRef.current) observer.observe(aboutRef.current);
-    if (imageRef.current) observer.observe(imageRef.current);
-    if (textRef.current) observer.observe(textRef.current);
-    if (buttonsRef.current) observer.observe(buttonsRef.current);
+    const elements = document.querySelectorAll(".bento-item");
+    elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <>
+    <section
+      id="about"
+      className="min-h-screen bg-slate-50 py-20 px-4 md:px-8 relative overflow-hidden"
+    >
+      {/* Inline Styles for custom animations and noise */}
       <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(5deg);
-          }
+        .bg-noise {
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
         }
 
-        @keyframes float-delayed {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-15px) rotate(-5deg);
-          }
-        }
-
-        @keyframes pulse-glow {
-          0%,
-          100% {
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.1),
-              0 0 40px rgba(103, 58, 183, 0.05);
-          }
-          50% {
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.15),
-              0 0 60px rgba(103, 58, 183, 0.08);
-          }
-        }
-
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes gradient-shift {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-
-        .animate-in {
+        .animate-fade-up {
           opacity: 1 !important;
-          transform: translateY(0) translateX(0) scale(1) !important;
+          transform: translateY(0) !important;
         }
 
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
+        .bento-item {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .animate-float-delayed {
-          animation: float-delayed 8s ease-in-out infinite;
-        }
-
-        .animate-pulse-glow {
-          animation: pulse-glow 4s ease-in-out infinite;
-        }
-
-        .animate-spin-slow {
-          animation: spin-slow 20s linear infinite;
-        }
-
-        .animate-gradient {
-          background-size: 400% 400%;
-          animation: gradient-shift 8s ease infinite;
-        }
-
-        .shimmer::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(
-            90deg,
+        .marquee-container {
+          mask-image: linear-gradient(
+            to right,
             transparent,
-            rgba(255, 255, 255, 0.1),
+            black 10%,
+            black 90%,
             transparent
           );
-          animation: shimmer 3s infinite;
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll {
+          animation: scroll 40s linear infinite; /* Slower speed for better readability */
         }
       `}</style>
 
-      <div
-        id="about"
-        className="min-h-screen relative overflow-hidden py-10 mt-24"
-      >
-        {/* Light Purple Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-400 to-blue-100 opacity-70"></div>
+      {/* Background Noise Overlay */}
+      <div className="absolute inset-0 bg-noise pointer-events-none z-0"></div>
 
-        {/* Subtle Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
-              backgroundSize: "40px 40px",
-            }}
-          ></div>
+      {/* Blob Backgrounds */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10" ref={containerRef}>
+        {/* Section Header */}
+        <div className="mb-12 bento-item">
+          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight font-general mt-6">
+            About{" "}
+            <span className="text-transparent bg-clip-text bg-blue-500">
+              Me.
+            </span>
+          </h2>
+          <p className="text-slate-500 mt-4 text-lg max-w-2xl">
+            More than just code. A glimpse into my stack, my style, and my
+            philosophy.
+          </p>
         </div>
 
-        {/* Elegant Floating Orbs - Adjusted for light purple */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute top-40 right-20 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl animate-float-delayed"></div>
-          <div className="absolute bottom-32 left-1/4 w-56 h-56 bg-violet-400/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute top-1/3 right-1/3 w-48 h-48 bg-blue-400/10 rounded-full blur-2xl animate-float-delayed"></div>
-        </div>
-
-        {/* Subtle Light Rays - Adjusted for light purple */}
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-purple-300/15 to-transparent"></div>
-          <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-indigo-300/15 to-transparent"></div>
-        </div>
-
-        <div
-          ref={aboutRef}
-          className="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 opacity-0 translate-y-20 transition-all duration-1000 ease-out"
-        >
-          {/* Sophisticated Title */}
-          <div className="text-center mb-16">
-            <h1 className="font-bold font-general text-5xl md:text-6xl mb-4 text-slate-800">
-              About Me
-            </h1>
-            {/* <div className="w-24 h-px bg-purple-400 mx-auto animate-pulse-glow"></div> */}
+        {/* The Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[minmax(180px,auto)]">
+          {/* 1. The Introduction Card (Large) */}
+          <div className="bento-item col-span-1 md:col-span-2 lg:col-span-2 row-span-2 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between group overflow-hidden relative">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+              <svg
+                className="w-32 h-32"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+              </svg>
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-sm font-medium mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                Open to Work
+              </div>
+              <h3 className="text-3xl font-bold text-slate-800 mb-4">
+                I'm Akash Sharma.
+              </h3>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                A <b>Full Stack Developer</b> crafting digital experiences that
+                blend form and function. I don't just write code; I build
+                solutions. My approach combines the precision of backend logic
+                with the creativity of frontend design.
+              </p>
+            </div>
+            <div className="mt-8">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-900 font-semibold transition-all duration-300 hover:bg-slate-900 hover:text-white hover:border-slate-900 hover:gap-4 hover:shadow-lg"
+              >
+                Let's Connect <span className="text-xl">→</span>
+              </a>
+            </div>
           </div>
 
-          {/* Premium Glassmorphism Card */}
-          <div className="w-full max-w-7xl bg-white/60 backdrop-blur-xl rounded-3xl border border-purple-200/10 shadow-xl p-8 md:p-16 relative overflow-hidden">
-            {/* Subtle border glow */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-400/5 via-transparent to-blue-400/5 p-px">
-              <div className="rounded-3xl bg-white/50 w-full h-full"></div>
+          {/* 2. The Photo Card */}
+          <div className="bento-item col-span-1 md:col-span-1 lg:col-span-1 row-span-2 bg-slate-200 rounded-3xl overflow-hidden relative group border border-slate-300">
+            <img
+              src="/img/person-org.png"
+              alt="Akash Profile"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+              <p className="text-white font-medium">📍 Konoha</p>
+              <p className="text-white/80 text-sm">Developer & Creator</p>
+            </div>
+          </div>
+
+          {/* 3. The Personality / Stats Card */}
+          <div className="bento-item col-span-1 bg-gradient-to-br from-orange-500 to-red-600 rounded-3xl p-6 text-white shadow-lg hover:shadow-orange-500/40 transition-shadow duration-300 flex flex-col justify-center relative overflow-hidden">
+            <div className="absolute -right-4 -bottom-4 text-white/10 text-9xl font-black select-none">
+              狐
             </div>
 
-            <div className="relative z-10 flex flex-col lg:flex-row items-center gap-16">
-              {/* Refined Image Section */}
-              <div
-                ref={imageRef}
-                className="flex-shrink-0 opacity-0 scale-90 rotate-1 transition-all duration-1000 ease-out delay-300"
-              >
-                <div className="relative group cursor-pointer">
-                  {/* Main Image with Elegant Effects */}
-                  <div className="relative">
-                    <img
-                      src="/img/person-org.png"
-                      alt="Akash Sharma"
-                      className="w-80 h-80 md:w-96 md:h-96 rounded-3xl object-cover shadow-xl border border-purple-200/20
-                                          transition-all duration-700 group-hover:scale-105 group-hover:-rotate-1
-                                          group-hover:shadow-purple-400/20 group-hover:border-purple-300/30"
-                    />
+            <h4 className="text-xl font-bold mb-1 relative z-10">
+              The Ninja Way 🦊
+            </h4>
+            <p className="text-orange-100 text-sm mb-4 relative z-10">
+              Powered by Ramen & Code.
+            </p>
 
-                    {/* Sophisticated Glow */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-purple-400/10 via-blue-400/5 to-violet-400/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl -z-10"></div>
-                  </div>
-
-                  {/* Minimal Rotating Elements */}
-                  <div className="absolute -inset-6 border border-dashed border-purple-200/10 rounded-full animate-spin-slow"></div>
-                  <div
-                    className="absolute -inset-12 border border-blue-300/10 rounded-full animate-spin-slow"
-                    style={{
-                      animationDirection: "reverse",
-                      animationDuration: "25s",
-                    }}
-                  ></div>
-
-                  {/* Elegant Accent */}
-                  {/* bg-gradient-to-r from-white to-blue-400 */}
-                  <div className="absolute -top-4 -right-4 w-10 h-10 bg-yellow-200 rounded-full shadow-md animate-float flex items-center justify-center text-white text-lg">
-                    ⚡
-                  </div>
-                </div>
+            <div className="space-y-2 relative z-10">
+              <div className="flex justify-between text-sm font-medium">
+                <span>Will of Fire</span>
+                <span>100%</span>
               </div>
-
-              {/* Refined Text Content */}
-              <div
-                ref={textRef}
-                className="flex-1 space-y-6 opacity-0 translate-x-20 transition-all duration-1000 ease-out delay-500"
-              >
-                <div className="space-y-4">
-                  <h2 className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight">
-                    Hey There!
-                    <span className="inline-block ml-2 text-3xl">👋</span>
-                  </h2>
-                  <div className="w-16 h-px bg-purple-400 rounded-full"></div>
-                </div>
-
-                <div className="space-y-4 text-lg md:text-xl leading-relaxed">
-                  <p className="text-slate-600">
-                    To all the{" "}
-                    <span className="font-semibold text-purple-600">
-                      Geeks 🧑‍💻
-                    </span>{" "}
-                    and{" "}
-                    <span className="font-semibold text-blue-600">
-                      Shinobis 🥷
-                    </span>{" "}
-                    around the World! 🌍
-                  </p>
-
-                  <p className="text-slate-700">
-                    I'm{" "}
-                    <span className="text-3xl md:text-4xl font-semibold text-indigo-700">
-                      Akash Sharma
-                    </span>
-                    <br />
-                    <span className="text-emerald-500 font-medium">
-                      Full Stack Software Developer
-                    </span>{" "}
-                    with the Spirit of the{" "}
-                    <span className="text-orange-500 font-semibold">
-                      Nine-Tails 🦊
-                    </span>
-                  </p>
-
-                  <p className="text-slate-500 text-base md:text-md italic">
-                    Armed with the wisdom of the{" "}
-                    <span className="text-green-500 font-medium">
-                      Hidden Leaf Village 🌳
-                    </span>
-                    , skilled in{" "}
-                    <span className="text-cyan-500 font-medium">front-end</span>
-                    ,{" "}
-                    <span className="text-purple-500 font-medium">
-                      back-end development
-                    </span>
-                    , and{" "}
-                    <span className="text-pink-500 font-medium">
-                      machine learning applications
-                    </span>
-                    .
-                  </p>
-                </div>
-
-                {/* Premium CTA */}
+              <div className="w-full bg-black/20 rounded-full h-1.5">
                 <div
-                  ref={buttonsRef}
-                  className="flex flex-col sm:flex-row items-center gap-4 pt-6 opacity-0 translate-y-10 transition-all duration-1000 ease-out delay-700"
-                >
-                  <a href="#contact" className="group">
-                    <button
-                      className="relative overflow-hidden bg-gradient-to-r from-blue-300 via-blue-500 to-blue-300 text-white font-semibold py-3 px-6 rounded-xl text-lg
-                      transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-blue-400/50
-                      border border-blue-200/20 hover:border-blue-300/30
-                      before:absolute before:inset-0 before:bg-blue-400 before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-20"
-                    >
-                      <span className="relative z-10 flex items-center gap-2">
-                        Let's Connect
-                        <span className="group-hover:translate-x-1 transition-transform duration-300 text-xl">
-                          ⚡
-                        </span>
-                      </span>
-                    </button>
-                  </a>
-                </div>
+                  className="bg-white h-1.5 rounded-full"
+                  style={{ width: "100%" }}
+                ></div>
+              </div>
+
+              <div className="flex justify-between text-sm font-medium mt-2">
+                <span>Bugs Fixed</span>
+                <span>∞</span>
+              </div>
+              <div className="w-full bg-black/20 rounded-full h-1.5">
+                <div
+                  className="bg-white h-1.5 rounded-full"
+                  style={{ width: "85%" }}
+                ></div>
               </div>
             </div>
+          </div>
+
+          {/* 4. Tech Stack Marquee (Mapped from skills array) */}
+          <div className="bento-item col-span-1 md:col-span-2 lg:col-span-2 bg-slate-900 rounded-3xl flex items-center relative overflow-hidden border border-slate-800">
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-transparent to-slate-900 z-10 pointer-events-none"></div>
+
+            <div className="flex gap-10 py-6 animate-scroll whitespace-nowrap">
+              {/* Loop twice to create the infinite scroll illusion */}
+              {[...Array(2)].map((_, loopIndex) => (
+                <div key={loopIndex} className="flex gap-10 items-center">
+                  {skills.map((skill, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 group/skill"
+                    >
+                      <div className="w-12 h-12 bg-slate-800/50 rounded-lg p-2 flex items-center justify-center border border-slate-700 group-hover/skill:border-indigo-500/50 transition-colors">
+                        <img
+                          src={skill.img}
+                          alt={skill.name}
+                          className="w-full h-full object-contain filter group-hover/skill:brightness-110 transition-all"
+                        />
+                      </div>
+                      <span className="text-slate-400 font-bold text-lg group-hover/skill:text-indigo-400 transition-colors">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 5. Small Detail Card */}
+          <div className="bento-item col-span-1 bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-purple-300 transition-colors duration-300 flex flex-col justify-center items-center text-center">
+            <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-2xl mb-3">
+              🚀
+            </div>
+            <div className="font-bold text-slate-800 text-lg">
+              Always Learning
+            </div>
+            <p className="text-xs text-slate-500 mt-1">
+              Exploring AI & Machine Learning
+            </p>
+          </div>
+
+          {/* 6. Contact CTA */}
+          <div className="bento-item col-span-1 md:col-span-3 lg:col-span-1 bg-indigo-600 rounded-3xl p-6 text-white flex flex-col justify-center items-center text-center hover:bg-indigo-700 transition-colors">
+            <h4 className="font-bold text-2xl">Have an idea?</h4>
+            <p className="text-indigo-200 text-sm mt-2 mb-4">
+              Let's build something amazing together.
+            </p>
+            <button className="bg-white text-indigo-600 px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform">
+              Email Me
+            </button>
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 
