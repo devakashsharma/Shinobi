@@ -150,21 +150,22 @@ const Project = () => {
                 viewBox="0 0 16 16"
                 className="text-white mx-auto mb-4"
               >
-                <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"/>
-                <path d="M8 5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V8H6a.5.5 0 0 1 0-1h1.5V5.5A.5.5 0 0 1 8 5z"/>
+                <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
+                <path d="M8 5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V8H6a.5.5 0 0 1 0-1h1.5V5.5A.5.5 0 0 1 8 5z" />
               </svg>
             </div>
-            
+
             <h3 className="text-2xl font-semibold mb-4 text-white font-general">
               Explore More Projects
             </h3>
-            
+
             <p className="text-gray-300 text-sm mb-6 font-robert-regular max-w-xs">
-              Discover additional projects and experiments on my GitHub repository
+              Discover additional projects and experiments on my GitHub
+              repository
             </p>
-            
+
             <a
-              href="https://github.com/devakashsharma" 
+              href="https://github.com/devakashsharma"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 text-sm font-general bg-white text-gray-900 
