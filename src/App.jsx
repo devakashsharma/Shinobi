@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Testimonials from "./components/Testimonials";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,6 +102,7 @@ const App = () => {
           <About />
           <Skills />
           <Project />
+          <Testimonials />
           <Contact />
           <Footer />
         </>

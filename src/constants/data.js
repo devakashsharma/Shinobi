@@ -143,3 +143,28 @@ export const projects = [
     githubLink: "https://github.com/devakashsharma/VisionNote-V2",
   },
 ];
+
+export const defaultTestimonials = [
+  {
+    image: "./img/test-1.jpg",
+    name: "Aakash Rathore",
+    role: "Founder",
+    message:
+      "As a founder, I really value reliability — and Akash delivered exactly that. He rebuilt our product pages with precision, and we immediately saw improvements in both speed and conversions.",
+  },
+  {
+    image: "./img/test-2.jpg",
+    name: "Priya Shrivas",
+    role: "Manager",
+    message:
+      "Working with Akash made my job easier. His clean code, quick communication, and structured workflow helped our team ship features faster without any chaos.",
+  },
+  {
+    image: "./img/test-3.jpg",
+    name: "G. Bhargavi",
+    role: "Graphic Designer",
+    url: "https://twitter.com/snehakapoor",
+    message:
+      "Akash was super collaborative and respectful of design goals. He implemented every detail exactly as envisioned and even improved the user experience with subtle accessibility touches.",
+  },
+];
