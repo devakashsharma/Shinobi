@@ -60,7 +60,7 @@ const Testimonials = ({ testimonials = myTestimonials }) => {
                       e.currentTarget.src = "https://i.pravatar.cc/150?img=1";
                     }}
                   />
-                  {t.url && (
+                  {/* {t.url && (
                     <a
                       href={t.url}
                       target="_blank"
@@ -70,7 +70,7 @@ const Testimonials = ({ testimonials = myTestimonials }) => {
                     >
                       <FaLinkedin size={12} />
                     </a>
-                  )}
+                  )} */}
                 </div>
 
                 <div>
