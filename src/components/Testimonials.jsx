@@ -1,8 +1,8 @@
 import React from "react";
-import { defaultTestimonials } from "../constants/data";
+import { myTestimonials } from "../constants/data";
 import { FaQuoteLeft, FaLinkedin } from "react-icons/fa";
 
-const Testimonials = ({ testimonials = defaultTestimonials }) => {
+const Testimonials = ({ testimonials = myTestimonials }) => {
   return (
     <section className="min-h-screen w-full bg-blue-50 py-20 font-circular-web relative overflow-hidden">
       {/* Decorative background blobs - Switched to Blue/Cyan theme */}

@@ -144,7 +144,7 @@ export const projects = [
   },
 ];
 
-export const defaultTestimonials = [
+export const myTestimonials = [
   {
     image: "./img/test-1.jpg",
     name: "Aakash Rathore",
