@@ -148,14 +148,14 @@ export const myTestimonials = [
   {
     image: "./img/test-1.jpg",
     name: "Aakash Rathore",
-    role: "Founder",
+    role: "Founder, Crown Publishing",
     message:
       "As a founder, I really value reliability — and Akash delivered exactly that. He rebuilt our product pages with precision, and we immediately saw improvements in both speed and conversions.",
   },
   {
     image: "./img/test-2.jpg",
     name: "Priya Shrivas",
-    role: "Manager",
+    role: "Manager, Crown Publishing",
     message:
       "Working with Akash made my job easier. His clean code, quick communication, and structured workflow helped our team ship features faster without any chaos.",
   },
