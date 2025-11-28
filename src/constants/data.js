@@ -24,6 +24,10 @@ export const skills = [
     name: "JavaScript",
   },
   {
+    img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+    name: "TypeScript",
+  },
+  {
     img: "https://www.php.net/images/logos/new-php-logo.svg",
     name: "PHP",
   },
