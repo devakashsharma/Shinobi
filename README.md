@@ -52,3 +52,5 @@ If you have any suggestions or feedback, feel free to connect with me:
 ---
 
 Thank you for visiting my portfolio repository! 🚀
+
+If like? Give me a 🌟
